@@ -1,0 +1,110 @@
+\documentclass[12pt, a4paper, twoside]{article}
+
+
+
+
+
+
+\input{preamble}
+\crefname{section}{question}{questions}
+
+\begin{document}
+	\graphicspath{ {./images/} }
+	\maketitle
+		
+	\begin{abstract}
+		
+		Here is the compilation of Yuming's homework submissions in MAT2040: Linear Algebra.  
+		
+		Things to note:
+		\begin{enumerate}
+			\item Assessment Scheme
+				\begin{itemize}
+					\item 10\% Homework and some of them are optional
+					\item 30\% Mid-term in the 3rd week
+					\item 60\% Final \br{Avg. 70\%-80\%}
+				\end{itemize}
+			\item Tutorial
+				\begin{itemize}
+					\item Matlab training sessions after the 2nd week
+				\end{itemize}
+		\end{enumerate}
+		
+		
+		If you find something stupid, feel free to contact him @ \href{mailto://yumingzhou@link.cuhk.edu.cn}{yumingzhou@link.cuhk.edu.cn}
+	\end{abstract}
+
+	\printglossaries
+	\tableofcontents
+	
+	
+	\hwk{1}{1.1-}{\MyAuthor}{June 8}
+	\section{Question 1}\label{q1}
+		For the following system of \gp{ls}
+		\begin{subnumcases}{}
+			\x{1}+2\x{2}+\x{3}=3\\
+			-\x{1}+\x{2}+\x{3}=2\\
+			\x{1}+\x{2}-x_3=1
+		\end{subnumcases}
+
+		\begin{enumerate}
+			\item Write down the \gp{cofm}, the \g{convec} and the \g{augm}.
+			\ans
+				\begin{equation}
+					A= 
+					\begin{bmatrix}
+					1 & 2 & 1 \\
+					-1 & 1 & 2\\
+					1 & 1 & -1
+					\end{bmatrix}
+				\end{equation}
+				\begin{equation}
+					B= 
+					\begin{bmatrix}
+						3\\
+						2\\
+						1
+					\end{bmatrix}
+				\end{equation}
+				
+				\begin{equation}
+					[A|B]=
+					\begin{amatrix}{3}
+						1 & 2 & 1  & 3 \\
+						-1 & 1 & 2 & 2\\
+						1 & 1 & -1 & 1
+					\end{amatrix}
+				\end{equation}	
+				
+			\item Applying \gp{ro} on the \g{augm}, find the \g{solset}.
+			\ans
+			\begin{multline}
+				[A|B]
+				\rop{\Row{1}+\Row{2}\\-\Row{1}+\Row{3}}
+				\begin{amatrix}{3}
+					1 & 2 & 1 & 3\\
+					0 & 3 & 3 & 5\\
+					0 & -1 & -2 & -2
+				\end{amatrix}
+				\rop{\Row{2}\to\frac{1}{3}\Row{2}}
+				\begin{bmatrix}{ccc|c}
+					1 & 2 & 1 & 3\\
+					0 & 1 & 1 & \frac{5}{3}\\
+					0 & -1 & -2 & -\frac{5}{2}
+				\end{bmatrix}
+			\end{multline}
+			
+			
+		\end{enumerate}
+		
+
+		
+	
+
+	
+	
+	
+
+
+	
+\end{document}

@@ -1,0 +1,282 @@
+
+
+% Access the author name in the document
+% Later in the document \ldots we access the variables again:
+% \MyTitle, \MyAuthor, and \MyDate.	
+\usepackage{authoraftertitle}
+\title{MAT2040: Linear Algebra}
+\author{ZHOU, Yuming 121050081}
+\newcommand{\COURSE}{MAT2040}
+\newcommand{\YEAR}{Summer 2022}
+
+
+
+\usepackage{thmbox}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+%\setmainfont{OpenDyslexic3}
+\setmainfont{Atkinson Hyperlegible}
+\setmonofont{Meslo LG L for Powerline}
+
+\newtheorem[L]{thm}{Theorem}[section]
+
+\newtheorem{cor}[thm]{Corollary}
+
+
+
+% update @ 2021
+%
+% this function resolves error of repeated commands
+\newcommand*{\renameenviron}[1]{\expandafter\let\csname renamed-#1\expandafter\endcsname\csname #1\endcsname\expandafter\let\csname endrenamed-#1\expandafter\endcsname\csname end#1\endcsname\expandafter\let\csname #1\endcsname\relax\expandafter\let\csname end#1\endcsname\relax}
+
+\usepackage{amsmath}
+
+\usepackage{cases}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{dsfont} % \mathds
+\usepackage{geometry} % page margin
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\definecolor{eggray}{rgb}{0.4, 0.4, 0.35}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+colorlinks,
+linkcolor={red!50!black},
+citecolor={blue!50!black},
+urlcolor={blue!80!black}
+}
+
+% NOTE: Always put hyperef before gls
+\usepackage{glossaries}
+
+\makeglossaries
+\glstoctrue
+\loadglsentries{gls}
+\newcommand{\g}[1]{\gls{#1}}
+\newcommand{\gp}[1]{\glspl{#1}}
+
+\usepackage{cleveref}
+
+\usepackage{graphicx} % images
+\setkeys{Gin}{width=0.6\linewidth}
+\usepackage{wrapfig} % figure wrapped by texts
+\usepackage{soul} % \ul
+\usepackage{mathrsfs} % mathsrc
+\usepackage{caption} % caption*
+\usepackage[inline]{enumitem} % change label of enumerate
+\usepackage{physics} % \dv and \pdv
+\usepackage{gensymb} % \degree
+\usepackage{linegoal} % \linegoal returns left width in a line
+\usepackage{booktabs} % \toprule in tabular
+\usepackage[d]{esvect} % \vv for vec
+
+\usepackage{tikz} % tikz
+%\usepackage{tikzit} % with tikzit app
+
+% \usepackage{courier} % font
+% \usepackage{listings} % font for code
+% \lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+% \lstset{framextopmargin=50pt,frame=bottomline}
+% \usepackage[cache=false]{minted} % minted setup to include code
+%\renewcommand{\MintedPygmentize}{/home/jpl/anaconda3/bin/pygmentize}
+% \renewcommand{\MintedPygmentize}{/Users/jacky/anaconda3/bin/pygmentize}
+% \setminted[python]{linenos, tabsize=2, breaklines}
+
+% for pseudo code
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{chngcntr} % for counterwithin
+\usepackage{calc} % get width of contents
+
+%
+% The following commands set up the lecnum (lecture number)
+% counter and make various numbering schemes work relative
+% to the lecture number.
+%
+\newcounter{lecnum}
+\counterwithin{section}{lecnum}
+\counterwithin{equation}{lecnum}
+\counterwithin{figure}{lecnum}
+\counterwithin{table}{lecnum}
+\counterwithin{algorithm}{lecnum}
+\counterwithin{footnote}{lecnum}
+
+\pagestyle{myheadings}
+
+\newlength{\leclen}
+\newcommand{\lecture}[4]{%
+\clearpage
+\thispagestyle{plain}
+\stepcounter{lecnum} % resets every associated counter
+\setcounter{lecnum}{#1}%
+\begin{center}
+\framebox{%
+\phantomsection % toc locate to section
+\addcontentsline{toc}{part}{\thelecnum\hspace{2em}\space#2}
+\parbox[t]{\linewidth-0.5mm}{%
+\vspace{2mm}
+{\bfseries\COURSE \hfill \YEAR \par}
+\vspace{2mm}
+{\Large %Lecture #1: #2
+\settowidth{\leclen}{Lecture999:}
+\begin{minipage}[t]{\leclen}
+Lecture #1:
+\end{minipage} \begin{minipage}[t]{\linewidth-2mm-\leclen}
+#2
+\end{minipage}
+\par}
+\vspace{4mm}
+{\itshape Lecturer: #3\hfill Date: #4\par}
+\vspace{2mm}
+}%
+}
+\end{center}
+\markboth{Lecture #1}{Lecture #1}
+}
+
+\newlength{\hwklen}
+\newcommand{\hwk}[4]{%
+\clearpage
+\thispagestyle{plain}
+\stepcounter{lecnum} % resets every associated counter
+\setcounter{lecnum}{#1}%
+\begin{center}
+\framebox{%
+\phantomsection % toc locate to section
+\addcontentsline{toc}{part}{\thelecnum\hspace{2em}\space#2}
+\parbox[t]{\linewidth-0.5mm}{%
+\vspace{2mm}
+{\bfseries\COURSE \hfill \YEAR \par}
+\vspace{2mm}
+{\Large %Lecture #1: #2
+\settowidth{\hwklen}{Assignment999:}
+\begin{minipage}[t]{\hwklen}
+Assignment #1:
+\end{minipage} \begin{minipage}[t]{\linewidth-2mm-\hwklen}
+#2
+\end{minipage}
+\par}
+\vspace{4mm}
+{\itshape Student: #3\hfill Date: #4\par}
+\vspace{2mm}
+}%
+}
+\end{center}
+\markboth{Assignment #1}{Assignment #1}
+}
+
+% theorem style
+\renameenviron{leftbar} % relax \leftbar to make thmbox work
+\usepackage{thmbox} % footnote disappears in such envs
+\newtheorem[style=M]{definition}{Definition}[lecnum]
+\newtheorem[L]{theorem}{Theorem}[lecnum]
+\newtheorem[S]{proposition}[theorem]{Proposition}
+\newtheorem[S]{lemma}[theorem]{Lemma}
+\newtheorem[S]{corollary}[theorem]{Corollary}
+
+%
+% Enumerate and Itemize
+
+%
+% Enumerate and Itemize
+
+\newlength{\mywidth}
+
+\newcounter{Egnum}[lecnum]
+\newenvironment{Eg}{\refstepcounter{Egnum}\par\medskip \noindent \textit{e.g.\theEgnum.} \color{eggray} \rmfamily } {\medskip}
+\newenvironment{Eg*}{\par\medskip \noindent \textit{e.g.} \color{eggray} \rmfamily } {\medskip}
+\newenvironment{QaA}{\par\medskip \noindent \textit{Q\&A.} \color{eggray} \rmfamily } {\medskip}
+\newcommand{\eg}[1]{{\color{eggray}(}{\textit{e.g.} \color{eggray} #1)}}
+\newcommand{\ie}[1]{{\color{eggray}(}{\textit{i.e.} \color{eggray} #1)}}
+\newcommand{\br}[1]{(#1)}
+
+% DEFINE ADDITIONAL MACROS
+\newcommand\note{\textit{Note:\hspace{0.75cm}}}
+\newcommand{\TODO}{\colorbox{red}{NOT DOING YET!}}
+\newcommand{\question}{\textit{\frame{Question:}\hspace{0.75cm}}}
+\newcommand{\claim}{\textit{\frame{Claim:}\hspace{0.75cm}}}
+\newcommand{\recall}{\textit{\frame{Recall:}\hspace{0.75cm}}}
+
+\newcommand{\mycell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}} % used in tabular to force new line
+
+% DEFINE MATH MACROS
+\newcommand{\qed}{\hfill\rule{2mm}{2mm}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\LHS}{LHS}
+\DeclareMathOperator*{\RHS}{RHS}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\myrightarrow}[1]{\mathrel{\raisebox{-2pt}{$\xrightarrow{#1}$}}}
+
+
+% Other commands
+\renewcommand\st{\quad\text{s.t.}\quad}
+\newcommand\E{\mathbb{E}} % expectation
+\newcommand\F{\mathbb{F}} % fields
+\newcommand\R{\mathbb{R}} % real
+\newcommand\Q{\mathbb{Q}} % quadratic
+\newcommand\Z{\mathbb{Z}} % integer
+\newcommand\N{\mathbb{N}} % natural
+\newcommand\bbC{\mathbb{C}} % complex
+\newcommand\bbI{\mathbb{I}} % index function
+\newcommand\bbS{\mathbb{S}}
+\newcommand\calR{\mathcal{R}} % integrability
+\newcommand\calF{\mathcal{F}} % family
+\newcommand\calA{\mathcal{A}} % algebra
+\newcommand\calB{\mathcal{B}} % Borel algebra
+\newcommand\calM{\mathcal{M}}
+\newcommand\bfi{\mathbf{i}}
+\newcommand\bfj{\mathbf{j}}
+\newcommand\bfk{\mathbf{k}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\sumiN}{\sum_{i=1}^N}
+\newcommand{\sumiM}{\sum_{i=1}^M}
+\newcommand{\sumjn}{\sum_{j=1}^n}
+\newcommand{\sumjm}{\sum_{j=1}^m}
+\newcommand{\sumil}{\sum_{i=1}^\ell}
+\newcommand{\intab}{\int_{a}^{b}}
+
+% Algebra
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\im}{\operatorname{im}}
+\renewcommand{\ker}{\operatorname{ker}}
+\newcommand{\opNull}{\operatorname{null}}
+\newcommand{\range}{\operatorname{range}}
+
+% Analysis
+\newcommand\simpleS{\boldsymbol{s}} % simple function
+\newcommand{\ptwto}{\mathrel{\raisebox{-4pt}{$\xrightarrow{\text{pointwise}}$}}}
+\newcommand{\unfto}{\mathrel{\raisebox{-4pt}{$\xrightarrow{\text{uniformly}}$}}}
+
+% Machine learning
+\newcommand\LossL{\mathcal{L}} % loss
+\newcommand\RiskR{\mathcal{R}}
+\newcommand\calN{\mathcal{N}} % normal distribution
+\newcommand\calG{\mathcal{G}}
+\newcommand\Var{\operatorname{var}} % variance
+\newcommand\Cov{\operatorname{cov}} % covariance
+\newcommand\Bias{\operatorname{Bias}} % bias
+\newcommand\MSE{\operatorname{MSE}} % MSE loss
+\newcommand{\MultiGaussianPDF}[1]{\frac{1}{\sqrt{(2\pi)^d|\Sigma_{#1}|}} \exp\left(-\frac12 (x-\mu_{#1})^T \Sigma_{#1}^{-1} (x-\mu_{#1})\right)}
+%\newcommand{\algorithmSplit}[1]{\end{algorithmic} #1 \begin{algorithmic}[1]} % OLD TO BE DELETED
+\newcommand{\idx}[1]{^{(#1)}} % superscript
+
+% Linear Algebra
+\newcommand{\Row}[1]{R_{#1}} % row
+\newcommand{\x}[1]{x_{#1}} % x unknown
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+\newcommand{\ans}{\text{Answer:}}
+\newcommand{\rop}[1]{\stackrel{\substack{#1}}{\to}}
